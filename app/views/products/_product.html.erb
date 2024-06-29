@@ -1,0 +1,8 @@
+<tr id="product_<%= product.id %>">
+  <td><%= product.name %></td>
+  <td><%= product.description %></td>
+  <td><%= product.price %></td>
+  <td><%= link_to 'Show', product, class: 'btn btn-primary' %></td>
+  <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary' %></td>
+  <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+</tr>
