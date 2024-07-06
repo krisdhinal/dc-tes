@@ -2,7 +2,19 @@
   <td><%= product.name %></td>
   <td><%= product.description %></td>
   <td><%= formatted_price(product) %></td>
-  <td><%= link_to 'Show', product, class: 'btn btn-primary' %></td>
-  <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary' %></td>
-  <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+  <td>
+    <%= link_to product do %>
+      <i class="fa fa-eye"></i>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to edit_product_path(product) do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to product, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
 </tr>
