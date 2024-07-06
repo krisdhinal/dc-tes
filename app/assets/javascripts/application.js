@@ -16,3 +16,4 @@
 //= require rails-ujs
 //= require turbolinks
 //= require auto_hide_alerts
+//= require currency_switcher

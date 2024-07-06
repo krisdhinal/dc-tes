@@ -11,8 +11,8 @@
   </p>
 
   <p>
-    <strong>Price:</strong>
-    <%= @product.price %>
+  <strong>Price:</strong>
+    <%= @product.converted_price %> <%= @product.currency %>
   </p>
 
   <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-primary" %>
