@@ -1,10 +1,10 @@
 <div class="container">
   <%= form_with(model: product, local: true) do |form| %>
-    <% if product.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <% if @product.errors.any? %>
+      <div class="alert alert-danger">
+        <h4 class="alert-heading">There were some errors:</h4>
         <ul>
-          <% product.errors.full_messages.each do |message| %>
+          <% @product.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
@@ -13,19 +13,34 @@
 
     <div class="form-group">
       <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control" %>
+      <%= form.text_field :name, class: "form-control #{'is-invalid' if @product.errors[:name].any? }" %>
+      <% if @product.errors[:name].any? %>
+        <div class="invalid-feedback">
+          <%= @product.errors[:name].join(', ') %>
+        </div>
+      <% end %>
     </div>
 
     <div class="form-group">
       <%= form.label :description %>
-      <%= form.text_area :description, class: "form-control" %>
+      <%= form.text_area :description, class: "form-control #{'is-invalid' if @product.errors[:description].any? }" %>
+      <% if @product.errors[:description].any? %>
+        <div class="invalid-feedback">
+          <%= @product.errors[:description].join(', ') %>
+        </div>
+      <% end %>
     </div>
 
     <div class="form-group">
       <%= form.label :price %>
-      <%= form.text_field :price, class: "form-control" %>
+      <%= form.text_field :price, class: "form-control #{'is-invalid' if @product.errors[:price].any? }" %>
+      <% if @product.errors[:price].any? %>
+        <div class="invalid-feedback">
+          <%= @product.errors[:price].join(', ') %>
+        </div>
+      <% end %>
     </div>
-
+    <br />
     <div class="form-group">
       <%= form.submit class: "btn btn-primary" %>
     </div>
